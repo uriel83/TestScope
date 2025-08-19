@@ -1,0 +1,96 @@
+.filters-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* "ביטויין" */
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.filters-bar app-table-filters {
+  flex: 1 1 auto;  /* לוקח את רוב השורה */
+  min-width: 0;    /* מאפשר כיווץ תקין */
+}
+
+.add-btn {
+  white-space: nowrap;
+  height: 36px;
+  text-transform: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 768px) {
+  .filters-bar {
+    flex-wrap: wrap;
+  }
+  .filters-bar app-table-filters {
+    width: 100%;
+    order: 1;
+  }
+  .add-btn {
+    order: 2;
+  }
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+tr.selected {
+  background-color: #fff9c4; // highlight yellow
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  height: 83vh;
+  overflow: hidden;
+  gap: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    height: auto;
+  }
+}
+
+.table-wrapper {
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+    border: 2px solid #c9d7ef;
+  border-radius: 8px;
+  background: #f7fbff;
+  padding: 8px;
+}
+.container > app-data-details {
+  min-height: 0;
+  display: flex;
+}
+tr.selected-row {
+  background-color: #fff9c4 !important;
+}
+
+.mat-icon-button {
+  padding: 4px;
+}
+
+.mat-column-actions {
+  width: 48px;
+  text-align: center;
+  padding: 0;
+}
+
+.mat-column-actions button {
+  width: 32px;
+  height: 32px;
+}
+
+

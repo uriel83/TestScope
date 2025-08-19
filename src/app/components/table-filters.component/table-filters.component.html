@@ -1,0 +1,52 @@
+<form class="filters" [formGroup]="form">
+  @if (type !== 'monitor') {
+    <mat-form-field appearance="outline">
+      <mat-label>Subject</mat-label>
+      <mat-select multiple formControlName="subjects">
+        @for (subject of subjects(); track subject) {
+          <mat-option [value]="subject">{{ subject }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  }
+
+  <mat-form-field appearance="outline">
+    <mat-label>Names</mat-label>
+    <mat-select multiple formControlName="traineeIds">
+      @for (trainee of trainees(); track trainee.idTrainee) {
+        <mat-option [value]="trainee.idTrainee">{{ trainee.name }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+@if(type === 'data') {
+  <mat-form-field appearance="outline" class="date-range">
+    <mat-label>Date range</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+      <input matStartDate formControlName="dateFrom" placeholder="From" />
+      <input matEndDate formControlName="dateTo" placeholder="To" />
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+
+  <span class="grades">
+    <mat-form-field appearance="outline" class="grade-range">
+      <mat-label>Min grade</mat-label>
+      <input matInput type="number" formControlName="gradeMin" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="grade-range">
+      <mat-label>Max grade</mat-label>
+      <input matInput type="number" formControlName="gradeMax" />
+    </mat-form-field>
+
+  </span>
+}
+      <button matFab color="warn"
+          type="button"
+          (click)="resetFilters()"
+          matTooltip="Clear filters">
+      <mat-icon>filter_list_off</mat-icon>
+  </button>
+
+</form>

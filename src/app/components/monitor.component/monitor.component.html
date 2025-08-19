@@ -1,0 +1,32 @@
+<app-table-filters
+  [activeFilters]="activeFiltersMonitor()"
+  [type]="'monitor'">
+</app-table-filters>
+
+<div class="monitor-container">
+  @if (rows().length === 0) {
+    <div class="empty">No results</div>
+  } @else {
+    <table class="monitor-table mat-elevation-z8">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Average</th>
+          <th>Exams</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (r of rows(); track r.idTrainee) {
+          <tr class="{{ r.passed ? 'row-passed' : 'row-failed' }}">
+            <td class="col-id">{{ r.idTrainee }}</td>
+            <td>{{ r.name }}</td>
+            <td>{{ r.average }}</td>
+            <td>{{ r.exams }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>

@@ -1,0 +1,42 @@
+.filters {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  max-height: 50px;
+}
+
+.filters mat-form-field {
+  flex: 1 1 200px;
+  max-width: 200px;}
+.grade-range mat-form-field {
+  width: 120px;
+  min-width: 100px;
+}
+.filters {
+  .grades {
+      display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+    mat-form-field {
+    flex: 1 1 110px;
+    max-width: 110px;
+  }}
+}
+
+.mat-mdc-fab {
+
+    margin-bottom: 20px;
+}
+
+
+:host ::ng-deep .filters .mat-mdc-input-element,
+:host ::ng-deep .filters .mat-mdc-select-value {
+  font-size: 12px;
+}
+
+:host ::ng-deep .filters .mdc-floating-label {
+  font-size: 12px;
+}
+

@@ -1,0 +1,33 @@
+<div class="toolbar">
+  <button
+    mat-button
+    [class.active]="activeView() === 'data'"
+    (click)="activeView.set('data')"
+  >
+    Data
+  </button>
+  <button
+    mat-button
+    [class.active]="activeView() === 'analysis'"
+    (click)="activeView.set('analysis')"
+  >
+    Analysis
+  </button>
+  <button
+    mat-button
+    [class.active]="activeView() === 'monitor'"
+    (click)="activeView.set('monitor')"
+  >
+    Monitor
+  </button>
+</div>
+
+<div class="main-content">
+  @if (activeView() === 'data') {
+    <app-data-table />
+  } @else if (activeView() === 'analysis') {
+    <app-analysis />
+  } @else {
+    <app-monitor />
+  }
+</div>

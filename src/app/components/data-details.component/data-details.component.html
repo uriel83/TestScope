@@ -1,0 +1,98 @@
+<div class="details-panel">
+  @if (selected) {
+  <div class="details-header">
+    <h3>Details</h3>
+
+    <div class="actions">
+      <button
+        mat-stroked-button
+        type="button"
+        (click)="onSave()"
+        [disabled]="form.invalid || !selected"
+        class="btn-save"
+      >
+        Save
+      </button>
+
+      <button
+        mat-stroked-button
+        type="button"
+        (click)="onCancel()"
+        [disabled]="!selected"
+        class="btn-cancel"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+
+  <form class="details-form" [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>ID</mat-label>
+      <input matInput formControlName="id" readonly />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Trainee ID</mat-label>
+      <input matInput formControlName="idTrainee" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Grade</mat-label>
+      <input matInput type="number" formControlName="grade" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="date-field">
+      <mat-label>Exam Date</mat-label>
+
+      <input
+        matInput
+        [matDatepicker]="picker"
+        formControlName="examDate"
+        class="date-input"
+        (click)="picker.open()"
+      />
+
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker startView="multi-year"></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="address" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>City</mat-label>
+      <input matInput formControlName="city" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Country</mat-label>
+      <input matInput formControlName="country" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>ZIP</mat-label>
+      <input matInput formControlName="zip" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Subject</mat-label>
+      <input matInput formControlName="subject" />
+    </mat-form-field>
+  </form>
+  } @else {
+  <p>Select a row to view details.</p>
+  }
+</div>

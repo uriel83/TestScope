@@ -1,0 +1,59 @@
+<!-- Filters header -->
+<app-table-filters
+  [activeFilters]="activeFiltersAnalysis()"
+  [type]="'analysis'"
+></app-table-filters>
+
+<!-- Charts grid -->
+<div class="charts-grid">
+  <!-- LEFT -->
+  <div
+    class="chart-slot"
+    cdkDropList
+    id="left"
+    [cdkDropListConnectedTo]="['right','hidden']"
+    (cdkDropListDropped)="onDrop($event)"
+  >
+    <div class="chart-card" cdkDrag [cdkDragData]="layout().left">
+      <h3>{{ title(layout().left) }}</h3>
+      <app-chart-widget
+        [chart]="layout().left"
+        [records]="records()"
+        [selectedIds]="selectedIds()"
+        [selectedSubjects]="selectedSubjects()"
+      ></app-chart-widget>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div
+    class="chart-slot"
+    cdkDropList
+    id="right"
+    [cdkDropListConnectedTo]="['left','hidden']"
+    (cdkDropListDropped)="onDrop($event)"
+  >
+    <div class="chart-card" cdkDrag [cdkDragData]="layout().right">
+      <h3>{{ title(layout().right) }}</h3>
+      <app-chart-widget
+        [chart]="layout().right"
+        [records]="records()"
+        [selectedIds]="selectedIds()"
+        [selectedSubjects]="selectedSubjects()"
+      ></app-chart-widget>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom hidden chart "button" -->
+<div
+  class="bottom-shelf"
+  cdkDropList
+  id="hidden"
+  [cdkDropListConnectedTo]="['left','right']"
+  (cdkDropListDropped)="onDrop($event)"
+>
+  <div class="hidden-pill" cdkDrag [cdkDragData]="layout().hidden">
+    {{ title(layout().hidden) }}
+  </div>
+</div>

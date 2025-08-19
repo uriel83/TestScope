@@ -1,0 +1,46 @@
+.monitor-container {
+  background: #eaf2fb;
+  border: 1px solid #c9d7ef;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.monitor-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead th {
+    text-align: left;
+    background: #f5f7fb;
+    border-bottom: 2px solid #dfe6f3;
+    padding: 8px 10px;
+  }
+
+  tbody td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #eef2f7;
+  }
+
+  .col-id {
+    width: 120px;
+    font-weight: 600;
+  }
+
+  tr.row-passed {
+    background: #28e64f33;
+  }
+  tr.row-failed {
+    background: #ff3b3033;
+  }
+}
+
+.empty {
+  display: grid;
+  place-items: center;
+  height: 160px;
+  color: #666;
+  border: 1px dashed #c7c7c7;
+  border-radius: 6px;
+  background: #fff;
+}
